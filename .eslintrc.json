@@ -11,7 +11,7 @@
     "prettier",
     "plugin:prettier/recommended"
   ],
-  "plugins": ["eslint-plugin-import-helpers", "prettier"],
+  "plugins": ["eslint-plugin-import-helpers", "prettier", "import"],
   "overrides": [],
   "parserOptions": {
     "ecmaVersion": "latest",
@@ -20,7 +20,10 @@
   },
   "settings": {
     "import/resolver": {
-      "typescript": {}
+      "typescript": {
+        "paths": "./tsconfig.json",
+        "alwaysTryTypes": true
+      }
     }
   },
   "rules": {
@@ -62,6 +65,12 @@
     "import/no-extraneous-dependencies": [
       "error",
       { "devDependencies": ["**/*.spec.js"] }
+    ],
+    "@typescript-eslint/typedef": [
+      "error",
+      {
+        "parameter": true
+      }
     ]
   }
 }
