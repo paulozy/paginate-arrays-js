@@ -22,7 +22,15 @@
     "prepare": "husky install"
   },
   "author": "Paulo Abreu <pa.aabreu18@gmail.com>",
-  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/paulozy/paginate-js.git"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/paulozy/paginate-js/issues"
+  },
+  "homepage": "https://github.com/paulozy/paginate-js#readme",
   "devDependencies": {
     "@rocketseat/eslint-config": "^1.2.0",
     "@types/jest": "^29.5.1",
