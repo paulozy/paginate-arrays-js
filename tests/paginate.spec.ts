@@ -29,5 +29,29 @@ describe("paginate unit tests", () => {
     });
   });
 
-  // it("should be possible paginate an array with custom page", () => {});
+  it("should be possible paginate an array from a custom page", () => {
+    const { data: paginatedData, pagination } = paginate({
+      data,
+      page: 2,
+      perPage: 10,
+      url: "/api",
+    });
+
+    expect(paginatedData).toHaveLength(10);
+    expect(pagination).toEqual({
+      totalPage: 10,
+      nextPage: 3,
+      prevPage: 1,
+      firstPage: 1,
+      lastPage: 10,
+      from: 11,
+      to: 20,
+      perPage: 10,
+      total: 100,
+      currentPage: 2,
+      hasPrevPage: true,
+      hasNextPage: true,
+      url: "/api?page=2",
+    });
+  });
 });
