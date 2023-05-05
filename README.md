@@ -1,21 +1,21 @@
-### paginate-js
+### paginate-arrays-js
 
-`paginate-js` is a simple and easy-to-use NPM package that allows you to paginate your
+`paginate-arrays-js` is a simple and easy-to-use NPM package that allows you to paginate your
 array data in JavaScript/TypeScript projects. This package is flexible and can be used
 with any data structure or framework.
 
 ## Installation
 
 ```bash
-npm install paginate-js
+npm install paginate-arrays-js
 ```
 
 ## Usage
 
-Import the `paginate` function from the `paginate-js` package:
+Import the `paginate` function from the `paginate-arrays-js` package:
 
 ```javascript
-import { paginate } from "paginate-js";
+import { paginate } from "paginate-arrays-js";
 ```
 
 ## Parameters
@@ -37,7 +37,7 @@ The `paginate` function returns an object with the following properties:
 ## Example
 
 ```javascript
-import { paginate } from "paginate-js";
+import { paginate } from "paginate-arrays-js";
 
 const data = [
   { id: 1, name: "John" },
@@ -92,9 +92,9 @@ navigation in your application.
 
 ## Contributing
 
-If you'd like to contribute to the development of `paginate-js`, please feel free to submit
+If you'd like to contribute to the development of `paginate-arrays-js`, please feel free to submit
 pull requests or report issues on the repository.
 
 ## License
 
-`paginate-js` is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+`paginate-arrays-js` is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).

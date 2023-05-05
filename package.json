@@ -1,5 +1,5 @@
 {
-  "name": "paginate-js",
+  "name": "paginate-arrays-js",
   "version": "1.0.0",
   "type": "module",
   "description": "A library to paginate arrays in javascript",
@@ -21,7 +21,11 @@
     "lint:fix": "eslint --ext .ts src --fix",
     "prepare": "husky install"
   },
-  "author": "Paulo Abreu <pa.aabreu18@gmail.com>",
+  "author": "Paulo Abreu",
+  "files": [
+    "dist",
+    "README.md"
+  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/paulozy/paginate-js.git"
