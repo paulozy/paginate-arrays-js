@@ -1,3 +1,5 @@
+import { type IPaginateParams, type IPaginateResult } from "./types";
+
 export function paginate({
   data,
   page,

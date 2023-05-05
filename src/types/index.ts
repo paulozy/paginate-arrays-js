@@ -1,11 +1,11 @@
-interface IPaginateParams {
+export interface IPaginateParams {
   page: number;
   perPage: number;
   data: unknown[];
   url: string;
 }
 
-interface IPaginateResult {
+export interface IPaginateResult {
   data: unknown[];
   pagination: {
     totalPage: number;
