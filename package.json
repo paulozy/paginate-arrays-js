@@ -1,0 +1,29 @@
+{
+  "name": "paginate-js",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "A library to paginate arrays in javascript",
+  "keywords": [
+    "paginate",
+    "pagination",
+    "array",
+    "javascript",
+    "js",
+    "library"
+  ],
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "prepare": "husky install"
+  },
+  "author": "Paulo Abreu <pa.aabreu18@gmail.com>",
+  "license": "ISC",
+  "devDependencies": {
+    "cz-conventional-changelog": "^3.3.0"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  }
+}
