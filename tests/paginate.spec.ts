@@ -54,4 +54,30 @@ describe("paginate unit tests", () => {
       url: "/api?page=2",
     });
   });
+
+  it("should be possible paginate an array from a custom page and perPage", () => {
+    const { data: paginatedData, pagination } = paginate({
+      data,
+      page: 2,
+      perPage: 5,
+      url: "/api",
+    });
+
+    expect(paginatedData).toHaveLength(5);
+    expect(pagination).toEqual({
+      totalPage: 20,
+      nextPage: 3,
+      prevPage: 1,
+      firstPage: 1,
+      lastPage: 20,
+      from: 6,
+      to: 10,
+      perPage: 5,
+      total: 100,
+      currentPage: 2,
+      hasPrevPage: true,
+      hasNextPage: true,
+      url: "/api?page=2",
+    });
+  });
 });
