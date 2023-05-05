@@ -48,7 +48,7 @@ const data = [
 
 const currentPage = 1;
 const itemsPerPage = 10;
-const url = "https://example.com/api/users";
+const url = "/api/users";
 
 const paginatedData = paginate({
   data,
@@ -82,7 +82,7 @@ This will return an object with paginated data and pagination information, like 
     currentPage: 1,
     hasPrevPage: false,
     hasNextPage: true,
-    url: 'https://example.com/api/users?page=1'
+    url: '/api/users?page=1'
   }
 }
 ```
