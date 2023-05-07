@@ -27,4 +27,36 @@ describe("cursor paginate", () => {
       totalPages: 10,
     });
   });
+
+  it("should be possible paginate an array with a cursor and after", () => {
+    const perPage = 10;
+
+    const identifier = "id";
+
+    const after = data[10].id;
+
+    const { data: paginatedItems, pagination } = cursorPaginate({
+      data,
+
+      perPage,
+
+      identifier,
+
+      after,
+    });
+
+    expect(paginatedItems).toHaveLength(perPage);
+
+    expect(pagination).toMatchObject({
+      hasPrevPage: true,
+
+      hasNextPage: true,
+
+      startCursor: paginatedItems[0].id,
+
+      endCursor: paginatedItems[paginatedItems.length - 1].id,
+
+      totalPages: 10,
+    });
+  });
 });
