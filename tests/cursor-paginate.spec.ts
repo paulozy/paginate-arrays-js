@@ -95,4 +95,28 @@ describe("cursor paginate", () => {
       totalPages: 10,
     });
   });
+
+  it("should be possible paginate an array with a cursor and before and after and perPage", () => {
+    const perPage = 10;
+    const identifier = "id";
+    const before = data[10].id;
+    const after = data[5].id;
+
+    const { data: paginatedItems, pagination } = cursorPaginate({
+      data,
+      perPage,
+      identifier,
+      before,
+      after,
+    });
+
+    expect(paginatedItems).toHaveLength(perPage);
+    expect(pagination).toMatchObject({
+      hasPrevPage: true,
+      hasNextPage: true,
+      startCursor: paginatedItems[0].id,
+      endCursor: paginatedItems[paginatedItems.length - 1].id,
+      totalPages: 10,
+    });
+  });
 });
