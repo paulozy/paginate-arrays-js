@@ -23,3 +23,22 @@ export interface IPaginateResult {
     url: string;
   };
 }
+
+export interface ICursorPaginateParams {
+  data: any[];
+  perPage: number;
+  identifier: string | number;
+  after?: string | number;
+  before?: string | number;
+}
+
+export interface ICursorPaginateResult {
+  data: any[];
+  pagination: {
+    hasPrevPage: boolean;
+    hasNextPage: boolean;
+    startCursor: string | number;
+    endCursor: string | number;
+    totalPages: number;
+  };
+}

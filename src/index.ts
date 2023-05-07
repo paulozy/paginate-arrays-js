@@ -1,4 +1,10 @@
-import { type IPaginateParams, type IPaginateResult } from "./types";
+/* eslint-disable @typescript-eslint/strict-boolean-expressions */
+import {
+  type ICursorPaginateParams,
+  type ICursorPaginateResult,
+  type IPaginateParams,
+  type IPaginateResult,
+} from "./types";
 
 export function paginate({
   data,
@@ -35,6 +41,46 @@ export function paginate({
     hasPrevPage: page > 1,
     hasNextPage: page < totalPage,
     url: urlWithPage(page),
+  };
+
+  return {
+    data: paginatedItems,
+    pagination,
+  };
+}
+
+export function cursorPaginate({
+  data,
+  perPage,
+  identifier,
+  after,
+  before,
+}: ICursorPaginateParams): ICursorPaginateResult {
+  let offset = 0;
+
+  if (after) {
+    offset = data.findIndex((item) => item[identifier] === after) + 1;
+  }
+
+  if (before) {
+    offset = data.findIndex((item) => item[identifier] === before);
+  }
+
+  const paginatedItems = data.slice(offset, offset + perPage);
+  const totalPages = Math.ceil(data.length / perPage);
+
+  const hasNextPage = offset + perPage < data.length;
+  const hasPrevPage = offset > 0;
+
+  const startCursor = paginatedItems[0]?.[identifier];
+  const endCursor = paginatedItems[paginatedItems.length - 1]?.[identifier];
+
+  const pagination = {
+    hasNextPage,
+    hasPrevPage,
+    startCursor,
+    endCursor,
+    totalPages,
   };
 
   return {
