@@ -10,7 +10,7 @@ with any data structure or framework.
 npm install paginate-arrays-js
 ```
 
-## Usage
+## Usage Paginate Default
 
 Import the `paginate` function from the `paginate-arrays-js` package:
 
@@ -83,6 +83,78 @@ This will return an object with paginated data and pagination information, like 
     hasPrevPage: false,
     hasNextPage: true,
     url: '/api/users?page=1'
+  }
+}
+```
+
+You can then use the paginated data and the pagination object to display paginated content and
+navigation in your application.
+
+## Usage Cursor Pagination
+
+Import the `cursorPaginate` function from the `paginate-arrays-js` package:
+
+```javascript
+import { cursorPaginate } from "paginate-arrays-js";
+```
+
+## Parameters
+
+The `cursorPaginate` function accepts an object with the following properties:
+
+- `data`: The array of data to be paginated.
+- `identifier`: The unique identifier for the cursor pagination.
+- `perPage`: The number of items to be displayed per page.
+- `after`: The cursor for the next page (optional).
+- `before`: The cursor for the previous page (optional).
+
+## Return Value
+
+The `cursorPaginate` function returns an object with the following properties:
+
+- `data`: The paginated data.
+- `pagination`: The pagination information.
+
+## Example
+
+```javascript
+import { cursorPaginate } from "paginate-arrays-js";
+
+const data = [
+  { id: 1, name: "John" },
+  { id: 2, name: "Jane" },
+  { id: 3, name: "Doe" },
+  // ...
+];
+
+const itemsPerPage = 10;
+const identifier = "id";
+const after = 1;
+
+const paginatedData = cursorPaginate({
+  data,
+  identifier,
+  perPage: itemsPerPage,
+  after,
+});
+
+console.log(paginatedData);
+```
+
+This will return an object with paginated data and pagination information, like so:
+
+```javascript
+{
+  data: [
+    { id: 2, name: 'Jane' },
+    // ...
+  ],
+  pagination: {
+    totalPages: 5,
+    hasPrevPage: true,
+    hasNextPage: true,
+    startCursor: 2,
+    endCursor: 11,
   }
 }
 ```
