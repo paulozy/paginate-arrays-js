@@ -11,9 +11,6 @@
     "js",
     "library"
   ],
-  "publishConfig": {
-    "registry": "https://npm.pkg.github.com"
-  },
   "main": "./dist/index.js",
   "scripts": {
     "test": "jest --silent --collectCoverage=false",
