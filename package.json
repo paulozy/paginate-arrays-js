@@ -1,6 +1,6 @@
 {
   "name": "paginate-arrays-js",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "type": "module",
   "description": "A library to paginate arrays in javascript",
   "keywords": [
@@ -11,6 +11,9 @@
     "js",
     "library"
   ],
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
+  },
   "main": "./dist/index.js",
   "scripts": {
     "test": "jest --silent --collectCoverage=false",
