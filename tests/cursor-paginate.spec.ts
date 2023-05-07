@@ -1,0 +1,30 @@
+import { randomUUID as uuid } from "node:crypto";
+
+import { cursorPaginate } from "../src/";
+
+describe("cursor paginate", () => {
+  const data = Array.from({ length: 100 }, (_, i) => ({
+    id: uuid(),
+    name: `User ${i}`,
+  }));
+
+  it("should be possible paginate an array with a cursor", () => {
+    const perPage = 10;
+    const identifier = "id";
+
+    const { data: paginatedItems, pagination } = cursorPaginate({
+      data,
+      perPage,
+      identifier,
+    });
+
+    expect(paginatedItems).toHaveLength(perPage);
+    expect(pagination).toMatchObject({
+      hasPrevPage: false,
+      hasNextPage: true,
+      startCursor: paginatedItems[0].id,
+      endCursor: paginatedItems[paginatedItems.length - 1].id,
+      totalPages: 10,
+    });
+  });
+});
